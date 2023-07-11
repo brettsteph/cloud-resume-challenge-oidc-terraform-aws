@@ -29,7 +29,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: GitHub-OIDC-TERRAFORM
       
-      # Hello from AWS: WhoAmI
+      # Hello from AWS: whoami
       - name: Sts GetCallerIdentity
         run: |
           aws sts get-caller-identity
