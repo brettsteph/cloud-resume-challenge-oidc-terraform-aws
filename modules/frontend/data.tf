@@ -16,7 +16,8 @@ data "aws_iam_policy_document" "bucket-policy" {
     effect = "Allow"
     principals {
       type = "AWS"
-      identifiers = ["arn:aws:iam::247232402049:user/Terraform"]
+      identifiers = ["*"]
+        # "arn:aws:iam::247232402049:user/Terraform"]
     }
     actions = ["s3:ListBucket", "s3:PutBucketPolicy"]
     resources = [
