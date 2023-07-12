@@ -6,14 +6,7 @@ terraform {
       version = "5.0.0"
     }
   }
-  backend "s3" {
-    region = "us-east-1"
-    bucket = "cloud-resume-challenge-oidc-terraform-aws-tfstate"
-    key    = "infra.tfstate"
-
-    dynamodb_table = "terraform-challenge-state-lock"
-    encrypt        = true #ensures Terraform state will be encrypted on disk when stored in S3
-  }
+  backend "s3" {}
 }
 
 
