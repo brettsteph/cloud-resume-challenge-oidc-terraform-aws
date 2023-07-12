@@ -11,17 +11,17 @@ data "aws_acm_certificate" "amazon-issued-cert" {
 }
 
 data "aws_iam_policy_document" "bucket-policy" {
-  statement {
-    sid    = "List Bucket & Put Bucket Policy"
-    effect = "Allow"
-    principals {
-      type = "AWS"
-      identifiers = ["arn:aws:iam::247232402049:user/Terraform"]
-    }
-    actions = ["s3:ListBucket", "s3:PutBucketPolicy"]
-    resources = [
-    "arn:aws:s3:::${var.s3-bucket-name}"]
-  }
+  # statement {
+  #   sid    = "List Bucket & Put Bucket Policy"
+  #   effect = "Allow"
+  #   principals {
+  #     type = "AWS"
+  #     identifiers = ["arn:aws:iam::247232402049:user/Terraform"]
+  #   }
+  #   actions = ["s3:ListBucket", "s3:PutBucketPolicy"]
+  #   resources = [
+  #   "arn:aws:s3:::${var.s3-bucket-name}"]
+  # }
   # statement {
   #   sid    = "PutObject"
   #   effect = "Allow"
