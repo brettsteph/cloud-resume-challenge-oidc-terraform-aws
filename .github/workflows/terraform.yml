@@ -17,6 +17,7 @@ permissions:
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_GITHUB_ACTION_ROLE: ${{ secrets.AWS_GITHUB_ACTION_ROLE }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -31,10 +32,13 @@ jobs:
       - name: Configure AWS credentials from AWS account
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.AWS_GITHUB_ACTION_ROLE }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: $AWS_GITHUB_ACTION_ROLE
+          aws-region: $AWS_REGION
           role-session-name: GitHub-OIDC-TERRAFORM
 
+      - name: Echo variable value
+        run: echo "$AWS_GITHUB_ACTION_ROLE"
+      
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
