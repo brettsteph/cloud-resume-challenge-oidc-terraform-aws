@@ -36,7 +36,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: GitHub-OIDC-TERRAFORM
 
-      - name: Echo variable value
+      - name: Echo GH role variable value
         run: echo "$AWS_GITHUB_ACTION_ROLE"
       
       - name: Setup Terraform
