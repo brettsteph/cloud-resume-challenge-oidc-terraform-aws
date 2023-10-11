@@ -35,9 +35,6 @@ jobs:
           role-to-assume: ${{ secrets.AWS_GITHUB_ACTION_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: GitHub-OIDC-TERRAFORM
-
-      - name: Echo GH role variable value
-        run: echo "$AWS_GITHUB_ACTION_ROLE"
       
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
